@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>KC.MSBuild.CopyLocal</AssemblyName>
+    <RootNamespace>KC.MSBuild.CopyLocal</RootNamespace>
+    <Company>Khaos-Coders</Company>
+    <Description>A small package that helps to copy dependencies to the build output dir</Description>
+    <PackageProjectUrl>https://github.com/KhaosCoders/MSBuild.CopyLocal</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/KhaosCoders/MSBuild.CopyLocal</RepositoryUrl>
+    <PackageTags>msbuild;copy;local</PackageTags>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build" Version="17.2.0" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="17.2.0" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.2.0" />
+    <PackageReference Include="NuGet.Packaging" Version="6.2.0" />
+    <PackageReference Include="NuGet.ProjectModel" Version="6.2.0" />
+  </ItemGroup>
+
+</Project>
