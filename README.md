@@ -1,8 +1,8 @@
 # KC.MSBuild.CopyLocal
 This is a small Nuget package, that helps with copying dependencies to the build output dir, when msbuild doesn't.
 
-![Build](https://github.com/KhaosCoders/MSBuild.CopyLocal/actions/workflows/build.yml/badge.svg)
-![Test](https://github.com/KhaosCoders/MSBuild.CopyLocal/actions/workflows/test.yml/badge.svg)
+![Build](https://github.com/KhaosCoders/MSBuild.CopyLocal/actions/workflows/build.yaml/badge.svg)
+![Test](https://github.com/KhaosCoders/MSBuild.CopyLocal/actions/workflows/test.yaml/badge.svg)
 [![codecov](https://codecov.io/gh/KhaosCoders/MSBuild.CopyLocal/branch/main/graph/badge.svg?token=t0Glt2gBti)](https://codecov.io/gh/KhaosCoders/MSBuild.CopyLocal)
 [![NuGet](https://img.shields.io/nuget/v/KC.MSBuild.CopyLocal.svg?logo=nuget)](https://www.nuget.org/packages/KC.MSBuild.CopyLocal/)
 
