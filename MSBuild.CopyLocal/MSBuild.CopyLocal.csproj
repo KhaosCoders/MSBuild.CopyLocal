@@ -17,7 +17,8 @@
     <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);PackBuildOutputs</TargetsForTfmSpecificContentInPackage>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
     <DevelopmentDependency>true</DevelopmentDependency>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
@@ -41,6 +42,7 @@
       <TfmSpecificPackageFile Include="$(ProjectDir)\Build\*.props" PackagePath="buildMultiTargeting" />
 
       <TfmSpecificPackageFile Include="$(TargetDir)\*.dll" PackagePath="tasks\.netstandard2.0" />
+      <TfmSpecificPackageFile Include="$(NuGetPackageRoot)\microsoft.build.utilities.core\17.2.0\lib\net472\*.dll" PackagePath="tasks\.netstandard2.0" />
       <TfmSpecificPackageFile Include="@(SatelliteDllsProjectOutputGroupOutput->'%(FinalOutputPath)')" PackagePath="tasks\.netstandard2.0\%(SatelliteDllsProjectOutputGroupOutput.Culture)\" />
     </ItemGroup>
   </Target>
