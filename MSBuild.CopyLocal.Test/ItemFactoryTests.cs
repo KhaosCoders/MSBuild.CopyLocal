@@ -32,12 +32,12 @@ public class ItemFactoryTests
         }
 
         Assert.IsNotNull(item);
-        Assert.AreEqual(expectedFullPath, item.ItemSpec);
+        Assert.AreEqual(expectedFullPath, item.ItemSpec.Replace("/", Environment.NewLine));
         Assert.AreEqual(Path.GetFileName(filePath), item.GetMetadata("DestinationSubPath"));
         Assert.AreEqual("runtime", item.GetMetadata("AssetType"));
         Assert.AreEqual("true", item.GetMetadata("CopyLocal"));
         Assert.AreEqual("false", item.GetMetadata("CopyToPublishDirectory"));
-        Assert.AreEqual(expectedFilePath, item.GetMetadata("PathInPackage"));
+        Assert.AreEqual(expectedFilePath, item.GetMetadata("PathInPackage").Replace("/", Environment.NewLine));
         Assert.AreEqual(nugetVersion, item.GetMetadata("NuGetPackageVersion"));
         Assert.AreEqual(nugetId, item.GetMetadata("NuGetPackageId"));
     }
