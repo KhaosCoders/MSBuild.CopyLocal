@@ -35,11 +35,11 @@ public class NugetAssemblysTests
 
         var libs = libraries.ToList();
         Assert.AreEqual(6, libs.Count);
-        Assert.AreEqual(@"C:\packages\lib\.net6\first.dll", libs[0].ItemSpec);
-        Assert.AreEqual(@"C:\packages\lib\.net6\second-1.dll", libs[1].ItemSpec);
-        Assert.AreEqual(@"C:\packages\lib\.net6\second-2.dll", libs[2].ItemSpec);
-        Assert.AreEqual(@"C:\packages\lib\.net6\sub.dll", libs[3].ItemSpec);
-        Assert.AreEqual(@"C:\packages\lib\.net6\subsub-1.dll", libs[4].ItemSpec);
-        Assert.AreEqual(@"C:\packages\lib\.net6\subsub-2.dll", libs[5].ItemSpec);
+        Assert.AreEqual(PathUtils.NormalizeSlashes(@"C:\packages\lib\.net6\first.dll"), libs[0].ItemSpec);
+        Assert.AreEqual(PathUtils.NormalizeSlashes(@"C:\packages\lib\.net6\second-1.dll"), libs[1].ItemSpec);
+        Assert.AreEqual(PathUtils.NormalizeSlashes(@"C:\packages\lib\.net6\second-2.dll"), libs[2].ItemSpec);
+        Assert.AreEqual(PathUtils.NormalizeSlashes(@"C:\packages\lib\.net6\sub.dll"), libs[3].ItemSpec);
+        Assert.AreEqual(PathUtils.NormalizeSlashes(@"C:\packages\lib\.net6\subsub-1.dll"), libs[4].ItemSpec);
+        Assert.AreEqual(PathUtils.NormalizeSlashes(@"C:\packages\lib\.net6\subsub-2.dll"), libs[5].ItemSpec);
     }
 }
