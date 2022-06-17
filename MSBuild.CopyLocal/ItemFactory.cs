@@ -21,8 +21,8 @@ internal class ItemFactory
 
     public ITaskItem Create(string nugetDir, string filePath, string nugetId, string nugetVersion, string assetType)
     {
-        filePath = filePath.Replace("/", "\\");
-        string fullpath = Path.Combine(nugetDir, filePath);
+        filePath = PathUtils.NormalizeSlashes(filePath);
+        string fullpath = PathUtils.NormalizeSlashes(Path.Combine(nugetDir, filePath));
 
         Dictionary<string, string> metadata = new()
         {
