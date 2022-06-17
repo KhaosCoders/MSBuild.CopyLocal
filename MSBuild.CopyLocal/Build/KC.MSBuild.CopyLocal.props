@@ -2,6 +2,8 @@
   <PropertyGroup>
     <TaskFolder>.netstandard2.0</TaskFolder>
     <TaskAssembly>$(MSBuildThisFileDirectory)..\tasks\$(TaskFolder)\KC.MSBuild.CopyLocal.dll</TaskAssembly>
+
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <UsingTask TaskName="KC.MSBuild.CopyLocal.UpdateAssemblyList" AssemblyFile="$(TaskAssembly)" />
