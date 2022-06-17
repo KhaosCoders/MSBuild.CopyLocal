@@ -1,6 +1,6 @@
 ﻿<Project TreatAsLocalProperty="TaskFolder;TaskAssembly">
   <PropertyGroup>
-    <TaskFolder>netstandard2.0</TaskFolder>
+    <TaskFolder>.netstandard2.0</TaskFolder>
     <TaskAssembly>$(MSBuildThisFileDirectory)..\tasks\$(TaskFolder)\KC.MSBuild.CopyLocal.dll</TaskAssembly>
   </PropertyGroup>
 
@@ -17,7 +17,7 @@
     <UpdateAssemblyList
       TargetFramework="$(TargetFramework)"
       ProjectAssetsFile="$(ProjectAssetsFile)">
-      <Output TaskParameter="FixedRuntimeAssemblies" ItemName="RuntimeCopyLocalItems" />
+      <Output TaskParameter="RuntimeAssemblies" ItemName="RuntimeCopyLocalItems" />
     </UpdateAssemblyList>
   </Target>
 
