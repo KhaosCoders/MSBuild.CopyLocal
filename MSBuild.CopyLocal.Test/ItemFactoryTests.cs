@@ -24,7 +24,7 @@ public class ItemFactoryTests
         var item = factory.Create(nugetDir, filePath, nugetId, nugetVersion, "runtime");
 
         Assert.IsNotNull(item);
-        Assert.AreEqual(Path.Combine(nugetDir, filePath.Replace("/", "\\")), item.ItemSpec);
+        Assert.AreEqual(Path.GetFullPath(Path.Combine(nugetDir, filePath.Replace("/", "\\"))), item.ItemSpec);
         Assert.AreEqual(Path.GetFileName(filePath), item.GetMetadata("DestinationSubPath"));
         Assert.AreEqual("runtime", item.GetMetadata("AssetType"));
         Assert.AreEqual("true", item.GetMetadata("CopyLocal"));
