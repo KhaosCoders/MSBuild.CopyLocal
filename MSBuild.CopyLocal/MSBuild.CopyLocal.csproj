@@ -12,10 +12,16 @@
     <RepositoryUrl>https://github.com/KhaosCoders/MSBuild.CopyLocal</RepositoryUrl>
     <PackageTags>msbuild;copy;local</PackageTags>
     <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IncludeSymbols>false</IncludeSymbols>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);PackBuildOutputs</TargetsForTfmSpecificContentInPackage>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <Version>0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md">
+    <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
@@ -28,5 +34,15 @@
     <PackageReference Include="NuGet.Packaging" Version="6.2.1" />
     <PackageReference Include="NuGet.ProjectModel" Version="6.2.1" />
   </ItemGroup>
+
+  <Target Name="PackBuildOutputs" DependsOnTargets="SatelliteDllsProjectOutputGroup;DebugSymbolsProjectOutputGroup">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(ProjectDir)\Build\*.props" PackagePath="build" />
+      <TfmSpecificPackageFile Include="$(ProjectDir)\Build\*.props" PackagePath="buildMultiTargeting" />
+
+      <TfmSpecificPackageFile Include="$(TargetDir)\*.dll" PackagePath="tasks\.netstandard2.0" />
+      <TfmSpecificPackageFile Include="@(SatelliteDllsProjectOutputGroupOutput->'%(FinalOutputPath)')" PackagePath="tasks\.netstandard2.0\%(SatelliteDllsProjectOutputGroupOutput.Culture)\" />
+    </ItemGroup>
+  </Target>
 
 </Project>

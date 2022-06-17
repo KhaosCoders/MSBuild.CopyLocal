@@ -1,0 +1,29 @@
+﻿<Project TreatAsLocalProperty="TaskFolder;TaskAssembly">
+  <PropertyGroup>
+    <TaskFolder>netstandard2.0</TaskFolder>
+    <TaskAssembly>$(MSBuildThisFileDirectory)..\tasks\$(TaskFolder)\KC.MSBuild.CopyLocal.dll</TaskAssembly>
+  </PropertyGroup>
+
+  <UsingTask TaskName="KC.MSBuild.CopyLocal.UpdateAssemblyList" AssemblyFile="$(TaskAssembly)" />
+
+  <Target Name="KCCopyLocalRuntime" AfterTargets="ResolvePackageAssets">
+    <ItemGroup>
+      <NativeCopyLocalItems Remove="%(NativeCopyLocalItems.Identity)" />
+      <RuntimeCopyLocalItems Remove="%(RuntimeCopyLocalItems.Identity)" />
+      <ResourceCopyLocalItems Remove="%(ResourceCopyLocalItems.Identity)" />
+      <RuntimeTargetsCopyLocalItems Remove="%(RuntimeTargetsCopyLocalItems.Identity)" />
+    </ItemGroup>
+
+    <UpdateAssemblyList
+      TargetFramework="$(TargetFramework)"
+      ProjectAssetsFile="$(ProjectAssetsFile)">
+      <Output TaskParameter="FixedRuntimeAssemblies" ItemName="RuntimeCopyLocalItems" />
+    </UpdateAssemblyList>
+  </Target>
+
+  <Target Name="KCCopyLocalPack" BeforeTargets="ResolveRuntimePackAssets">
+    <PropertyGroup>
+      <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+  </Target>
+</Project>
