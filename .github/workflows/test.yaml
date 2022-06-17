@@ -1,13 +1,17 @@
-name: Publish NuGet
-on: workflow_dispatch
+name: Build and Test
+
+on:
+  push:
+    branches: [ main ]
 
 jobs:
-  publish:
-    name: Build, Pack & Publish
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET
+    - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
@@ -17,9 +21,9 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
-
-    - name: Package
-      run: dotnet pack -c Release -o bin MSBuild.CopyLocal/MSBuild.CopyLocal.csproj
-    - name: Publish to nuget.org
-      run: dotnet nuget push bin/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage"
+    - name: Publish to codecov
+      uses: codecov/codecov-action@v2
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        directory: ./MSBuild.CopyLocal.Tests/TestResults/

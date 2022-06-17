@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBuild.CopyLocal", "MSBuild.CopyLocal\MSBuild.CopyLocal.csproj", "{F3D87AA0-2FB3-4E83-8F2B-B0D82547C4A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSBuild.CopyLocal", "MSBuild.CopyLocal\MSBuild.CopyLocal.csproj", "{F3D87AA0-2FB3-4E83-8F2B-B0D82547C4A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBuild.CopyLocal.Test", "MSBuild.CopyLocal.Test\MSBuild.CopyLocal.Test.csproj", "{E53E153E-716B-451E-84EA-52B692D4F0D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F3D87AA0-2FB3-4E83-8F2B-B0D82547C4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3D87AA0-2FB3-4E83-8F2B-B0D82547C4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3D87AA0-2FB3-4E83-8F2B-B0D82547C4A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E53E153E-716B-451E-84EA-52B692D4F0D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E53E153E-716B-451E-84EA-52B692D4F0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E53E153E-716B-451E-84EA-52B692D4F0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E53E153E-716B-451E-84EA-52B692D4F0D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

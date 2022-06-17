@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace KC.MSBuild.CopyLocal;
 
-internal sealed class NuGetPackageResolver
+internal sealed class NuGetPackageResolver : INuGetPackageResolver
 {
     private readonly FallbackPackagePathResolver _packagePathResolver;
 
