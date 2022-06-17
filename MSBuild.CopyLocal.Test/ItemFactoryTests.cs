@@ -23,8 +23,8 @@ public class ItemFactoryTests
         const string nugetVersion = "1.0.0";
         var item = factory.Create(nugetDir, filePath, nugetId, nugetVersion, "runtime");
 
-        var expectedFullPath = Path.Combine(nugetDir, filePath.Replace("/", "\\"));
-        var expectedFilePath = filePath.Replace("/", "\\");
+        var expectedFullPath = Path.Combine(nugetDir, filePath).Replace("/", @"\");
+        var expectedFilePath = filePath.Replace("/", @"\");
         if (Environment.NewLine != @"\")
         {
             expectedFullPath = expectedFullPath.Replace(@"\", Environment.NewLine);
