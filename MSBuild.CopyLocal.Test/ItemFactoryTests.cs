@@ -28,7 +28,7 @@ public class ItemFactoryTests
 
         Assert.IsNotNull(item);
         Assert.AreEqual(expectedFullPath, item.ItemSpec);
-        Assert.AreEqual(Path.GetFileName(filePath), item.GetMetadata("DestinationSubPath"));
+        Assert.AreEqual(Path.GetFileName(expectedFilePath), item.GetMetadata("DestinationSubPath"));
         Assert.AreEqual("runtime", item.GetMetadata("AssetType"));
         Assert.AreEqual("true", item.GetMetadata("CopyLocal"));
         Assert.AreEqual("false", item.GetMetadata("CopyToPublishDirectory"));
