@@ -29,6 +29,12 @@ You can decide which `<PackageReference>` dependencies you want to be copied to 
 <PackageReference Include="Serilog" Version="11.0.0" PrivateAssets="All" />
 ```
 
+# Tested with
+ - Visual Studio 2022 (Version 17.2)
+ - Visual Studio Code & .net6 SDK (Version 6.0.300)
+
+This Nuget was only tested with these versions of msbuild. It may or may not work with older or newer versions.
+
 # Known Issues
  - Beside runtime assemblies PackageReferences can include native or resource files. These are not covered yet.
 
